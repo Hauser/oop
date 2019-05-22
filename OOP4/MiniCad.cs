@@ -57,7 +57,7 @@ namespace OOP4
 		}
 		public void Delete(OOP1.Point pos)
 		{
-			_shapes.RemoveAll(s => s.HitInRadius(pos));
+			_shapes.RemoveAll(s => s.IsHit(pos));
 		}
 		public bool Move(OOP1.Point pos)
 		{
@@ -74,7 +74,7 @@ namespace OOP4
 			return false;
 		}
 		public void StartMove(OOP1.Point pos)
-			=> _draggedShape = _shapes.Find(s => s.HitInRadius(pos));
+			=> _draggedShape = _shapes.Find(s => s.IsHit(pos));
 		public void EndMove()
 			=> _draggedShape = null;
 	}

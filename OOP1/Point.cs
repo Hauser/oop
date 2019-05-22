@@ -8,14 +8,9 @@
 		public static readonly Point Zero = new Point(0, 0);
 
 		public Point(int aX, int aY)
-		{
-			m_X = aX;
-			m_Y = aY;
-		}
+			=> (m_X, m_Y) = (aX, aY);
 
 		public static implicit operator System.Drawing.Point(Point p)
-		{
-			return new System.Drawing.Point(p.m_X, p.m_Y);
-		}
+			=> new System.Drawing.Point(p.m_X, p.m_Y);
 	}
 }

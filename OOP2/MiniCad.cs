@@ -49,7 +49,7 @@ namespace OOP2
 		}
 		public void Delete(OOP1.Point pos)
 		{
-			_shapes.RemoveAll(s => s.HitInRadius(pos));
+			_shapes.RemoveAll(s => s.IsHit(pos));
 		}
 	}
 }

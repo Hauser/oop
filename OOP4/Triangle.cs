@@ -23,15 +23,17 @@ namespace OOP1
 			var h = m_P2.m_Y - m_P.m_Y;
 			var w2 = m_P3.m_X - m_P.m_X;
 			var h2 = m_P3.m_Y - m_P.m_Y;
-			m_P = new Point(aDx, aDy);
+
 			m_P2 = new Point(aDx + w, aDy + h);
 			m_P3 = new Point(aDx + w2, aDy + h2);
+
+			base.Move(aDx, aDy);
 		}
 		public override void Draw(Pen pen, Graphics gr)
 		{
 			gr.FillPolygon(pen.Brush, new System.Drawing.Point[] { m_P, m_P2, m_P3 });
 		}
-		public override bool HitInRadius(Point aP)
+		public override bool IsHit(Point aP)
 		{
 			var p = new { X = aP.m_X, Y = aP.m_Y };
 			var p0 = new { X = m_P.m_X, Y = m_P.m_Y };
@@ -49,6 +51,7 @@ namespace OOP1
 			return (A < 0) ? (s <= 0 && s + t >= A) : (s >= 0 && s + t <= A);
 		}
 
-		public override string ToString() => typeof(Triangle).Name;
+		public override string ToString()
+			=> typeof(Triangle).Name;
 	}
 }

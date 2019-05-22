@@ -15,23 +15,27 @@ namespace OOP1
 		{
 			m_P2 = aP2;
 		}
+
 		public override void Move(int aDx, int aDy)
 		{
 			var w = m_P2.m_X - m_P.m_X;
 			var h = m_P2.m_Y - m_P.m_Y;
-			m_P = new Point(aDx, aDy);
+
 			m_P2 = new Point(aDx + w, aDy + h);
+
+			base.Move(aDx, aDy);
 		}
 		public override void Draw(Pen pen, Graphics gr)
 		{
 			gr.FillRectangle(pen.Brush, m_P.m_X, m_P.m_Y, System.Math.Abs(m_P.m_X - m_P2.m_X), System.Math.Abs(m_P.m_Y - m_P2.m_Y));
 		}
-		public override bool HitInRadius(Point aP)
+		public override bool IsHit(Point aP)
 		{
 			return aP.m_X >= m_P.m_X && aP.m_X <= m_P2.m_X
 				&& aP.m_Y >= m_P.m_Y && aP.m_Y <= m_P2.m_Y;
 		}
 
-		public override string ToString() => typeof(Rectangle).Name;
+		public override string ToString()
+			=> typeof(Rectangle).Name;
 	}
 }

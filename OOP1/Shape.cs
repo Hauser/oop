@@ -6,10 +6,13 @@ namespace OOP1
 	{
 		public Point m_P { get; protected set; }
 
-		public Shape(Point aP) => m_P = aP;
+		public Shape(Point aP)
+			=> m_P = aP;
 
-		public abstract void Move(int aDx, int aDy);
+		public virtual void Move(int aDx, int aDy)
+			=> m_P = new Point(aDx, aDy);
+
 		public abstract void Draw(Pen pen, Graphics gr);
-		public abstract bool HitInRadius(Point aP);
+		public abstract bool IsHit(Point aP);
 	}
 }

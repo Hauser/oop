@@ -45,17 +45,17 @@ namespace OOP1_Tests
 			var rec = new Rectangle(pos, new Point(20, 20));
 			var cir = new Circle(pos, 5);
 
-			Assert.IsTrue(rec.HitInRadius(new Point(10, 10)));
-			Assert.IsTrue(rec.HitInRadius(new Point(20, 20)));
+			Assert.IsTrue(rec.IsHit(new Point(10, 10)));
+			Assert.IsTrue(rec.IsHit(new Point(20, 20)));
 
-			Assert.IsFalse(rec.HitInRadius(new Point(9, 9)));
-			Assert.IsFalse(rec.HitInRadius(new Point(21, 21)));
+			Assert.IsFalse(rec.IsHit(new Point(9, 9)));
+			Assert.IsFalse(rec.IsHit(new Point(21, 21)));
 
-			Assert.IsTrue(cir.HitInRadius(new Point(15, 15)));
-			Assert.IsTrue(cir.HitInRadius(new Point(10, 15)));
+			Assert.IsTrue(cir.IsHit(new Point(15, 15)));
+			Assert.IsTrue(cir.IsHit(new Point(10, 15)));
 
-			Assert.IsFalse(cir.HitInRadius(new Point(10, 10)));
-			Assert.IsFalse(cir.HitInRadius(new Point(20, 20)));
+			Assert.IsFalse(cir.IsHit(new Point(10, 10)));
+			Assert.IsFalse(cir.IsHit(new Point(20, 20)));
 		}
 	}
 }
